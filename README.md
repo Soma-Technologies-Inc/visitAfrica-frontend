@@ -12,10 +12,10 @@ VisitAfrica
 * run flutter pub get to install dependencies
 * run flutter run to start
 ####  Contributers
-* Sandrine21
-* Floride125-art
-* Rita-12397
-* Dianahub250
+* [Floride TUYISENGE](https://github.com/Floride125-art)
+* [Sandrine UMURERWAWASE](https://github.com/Sandrine21)
+* [Diane NGOGA NIYODUKORERA](https://github.com/dianahub250)
+* [Rita HATEGEKIMANA](https://github.com/Rita-12397)
 #### License
  *MIT License*s
 The MIT License
