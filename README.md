@@ -6,7 +6,7 @@ VisitAfrica
 * Rita HATEGEKIMANA
 * Diane NGOGA NIYODUKORERA
 #### Description:
- 
+ VisitAfrica App, is an application designed to help the people who want to make tour in different countires of Africa. The tourist can be able to book the plane ticket, accomodations and places to visit before the visit time.
 #### Technologies used
 * Flutter
 * Dart
