@@ -12,7 +12,7 @@ VisitAfrica
 * Dart
 #### Setup instructions
 * There is no need to enter your personal credentials to access this APP.
-* You can clone this repository to make your own changes by Open terminal by Ctrl+ Alt + T, clone, Type code .to open vs code editor or use android studio. depending on which editor you are using!
+* You can clone this repository to make your own changes by Open terminal by Ctrl+ Alt + T, clone, Type code .to open vs code editor or use android studio. depending on which editor you are using, they can both work!
 * run flutter pub get to install dependencies
 * run flutter run to start
 ####  Contact information
