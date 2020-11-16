@@ -1,29 +1,23 @@
 #### Project Name:
 VisitAfrica
-#### Authors:
-* Sandrine UMURERWAWASE
-* Floride TUYISENGE
-* Rita HATEGEKIMANA
-* Diane NGOGA NIYODUKORERA
+
 #### Description:
- 
+ VisitAfrica App, is an application designed to help the people who want to make tour in different countires of Africa. The tourist can be able to book the plane ticket, accomodations and places to visit before the visit time.
 #### Technologies used
 * Flutter
 * Dart
 #### Setup instructions
 * There is no need to enter your personal credentials to access this APP.
-* You can clone this repository to make your own changes by Open terminal by Ctrl+ Alt + T, clone, Type code .to open vs code editor or use android studio. depending on which editor you are using!
+* You can clone this repository to make your own changes by Open terminal by Ctrl+ Alt + T, clone, Type code .to open vs code editor or use android studio. depending on which editor you are using, they can both work!
 * run flutter pub get to install dependencies
 * run flutter run to start
-####  Contact information
-* Email:sumurerwawase620@gmail.com
-* Email:ftuyisenge120@gmail.com
-* Email:rhategekimana920@gmail.com
-* Email:dniyodukorera120@gmail.com
-#### Link to our Live pages 
-
+####  Contributers
+* [Floride TUYISENGE](https://github.com/Floride125-art)
+* [Sandrine UMURERWAWASE](https://github.com/Sandrine21)
+* [Diane NGOGA NIYODUKORERA](https://github.com/dianahub250)
+* [Rita HATEGEKIMANA](https://github.com/Rita-12397)
 #### License
- *MIT License*
+ *MIT License*s
 The MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
