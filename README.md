@@ -21,7 +21,7 @@ VisitAfrica
 * Email:rhategekimana920@gmail.com
 * Email:dniyodukorera120@gmail.com
 #### License
- *MIT License*
+ *MIT License*s
 The MIT License
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
