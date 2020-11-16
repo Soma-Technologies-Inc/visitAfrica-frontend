@@ -20,8 +20,6 @@ VisitAfrica
 * Email:ftuyisenge120@gmail.com
 * Email:rhategekimana920@gmail.com
 * Email:dniyodukorera120@gmail.com
-#### Link to our Live pages 
-
 #### License
  *MIT License*
 The MIT License
