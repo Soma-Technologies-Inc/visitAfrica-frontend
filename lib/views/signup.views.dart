@@ -18,8 +18,8 @@ class _SignupViewState extends State<SignupView> {
 
   TextEditingController username = new TextEditingController();
   TextEditingController email = new TextEditingController();
-  TextEditingController psw = new TextEditingController();
-  TextEditingController confirmpsw = new TextEditingController();
+  TextEditingController password = new TextEditingController();
+  TextEditingController confirmPassword = new TextEditingController();
 
   List<Info> myinfo = [
       new Info("Sandrine Umurerwawase", "sando@gmail.com", "12345", "12345"),
@@ -122,7 +122,7 @@ class _SignupViewState extends State<SignupView> {
                             left: 30.0,
                           ),
                           child: TextFormField(
-                            controller: psw,
+                            controller: password,
                             decoration: InputDecoration(
                                 hintText: 'Password',
                                 suffixIcon: IconButton(
@@ -151,7 +151,7 @@ class _SignupViewState extends State<SignupView> {
                             left: 30.0,
                           ),
                           child: TextFormField(
-                            controller: confirmpsw,
+                            controller: confirmPassword,
                             decoration: InputDecoration(
                                 hintText: 'Confirm password',
                                 suffixIcon: IconButton(
@@ -167,7 +167,7 @@ class _SignupViewState extends State<SignupView> {
                             validator: (confirmpsw) {
                               if (confirmpsw.isEmpty) {
                                 return "Please re-enter Password ";
-                              } else if (psw.text != confirmpsw) {
+                              } else if (password.text != confirmpsw) {
                                 return "Password do not match";
                               } else {
                                 return null;
@@ -199,11 +199,11 @@ class _SignupViewState extends State<SignupView> {
                                 }
   
                                 myinfo.add(Info(username.text, email.text,
-                                    psw.text, confirmpsw.text));
+                                    password.text, confirmPassword.text));
                                 username.clear();
                                 email.clear();
-                                psw.clear();
-                                confirmpsw.clear();
+                                password.clear();
+                                confirmPassword.clear();
                               }
                             },
                             minWidth: 150,
