@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:visistafri/utils/screen_size.dart';
-import 'package:visistafri/views/signup.view.dart';
+import 'package:visistafri/views/signup.views.dart';
 import 'package:visistafri/widgets/button.widget.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -96,7 +96,7 @@ class WelcomeView extends StatelessWidget {
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
-                          builder: (BuildContext context) => Signup(),
+                          builder: (BuildContext context) => SignupView(),
                         ),
                       );
                     },
