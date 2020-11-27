@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:visistafri/views/login.views.dart';
-import 'package:visistafri/views/signup.view.dart';
+import 'package:visistafri/views/signup.views.dart';
 
 class Recoverpass extends StatefulWidget {
   @override
@@ -61,7 +61,8 @@ class _RecoverState extends State<Recoverpass> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 15.0, right: 15.0,top:40.0),
+                padding:
+                    const EdgeInsets.only(left: 15.0, right: 15.0, top: 40.0),
                 child: Container(
                   padding: EdgeInsets.only(
                     right: 17.0,
@@ -133,8 +134,8 @@ class _RecoverState extends State<Recoverpass> {
                 child: MaterialButton(
                   onPressed: () {
                     if (formKey.currentState.validate()) {
-                     etpassword.clear();
-                     etcomfirmpassword.clear();
+                      etpassword.clear();
+                      etcomfirmpassword.clear();
                       Navigator.push(
                         context,
                         CupertinoPageRoute(
@@ -163,8 +164,10 @@ class _RecoverState extends State<Recoverpass> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignupView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignupView()));
                     },
                     child: Text(
                       'Sign up',
