@@ -6,7 +6,7 @@ import 'package:readmore/readmore.dart';
 import 'package:visistafri/models/place.models.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:visistafri/views/signup.views.dart';
-import 'package:visistafri/views/specificcountry.views.dart';
+import 'package:visistafri/views/SpecificCountry.view.dart';
 import 'package:visistafri/widgets/smallbutton.widget.dart';
 
 class Homepage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _HomepageState extends State<Homepage> {
   List<Place> slides = [
     Place('SERENGETI', "assets/images/af.JPEG", 'Nairobi,Tanzania',
         'Serengeti National Park,Nothern Tanzania'),
-    Place('KCC', "assets/images/kc.JPG", 'Kigali,Rwanda',
+    Place('KCC', "assets/images/kc.jpg", 'Kigali,Rwanda',
         'Kigali Convetion Center, Kigali Rwanda'),
     Place('Mega Mixed', "assets/images/mega.JPG", 'Johannesburg,South-Africa',
         'Mega Mixed Building, Johannesburg South-Africa'),
@@ -40,7 +40,7 @@ class _HomepageState extends State<Homepage> {
   ];
   List<MostVisted> mostVisitedCategories = [
     MostVisted('Buildings', [
-      Place('KCC', "assets/images/kc.JPG", 'Kigali,Rwanda',
+      Place('KCC', "assets/images/kc.jpg", 'Kigali,Rwanda',
           'Kigali Convetion Center'),
       Place('KCC', "assets/images/ac.JPG", 'Kigali,Rwanda', 'Round Building'),
       Place(
@@ -369,7 +369,17 @@ class _HomepageState extends State<Homepage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SpecificCountry()));
+                                builder: (context) => SpecificCountry(place: Place(mostVisitedCategories[selectedIndex]
+                            .places[index]
+                            .name,
+                                 mostVisitedCategories[selectedIndex]
+                            .places[index]
+                            .image, mostVisitedCategories[selectedIndex]
+                            .places[index]
+                            .location,
+                              mostVisitedCategories[selectedIndex]
+                            .places[index]
+                            .description),),));
                       },
                       child: Image.asset(
                         mostVisitedCategories[selectedIndex]
@@ -390,7 +400,6 @@ class _HomepageState extends State<Homepage> {
                               .places[index]
                               .description,
                           trimLines: 2,
-                          colorClickableText: Colors.pink,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: 'Show more',
                           trimExpandedText: 'Show less',
@@ -475,6 +484,12 @@ class Search extends SearchDelegate {
       IconButton(
         icon: Icon(Icons.close),
         onPressed: () {
+            // Navigator.push(
+            //                 context,
+            //                 MaterialPageRoute(
+            //                     builder: (context) => SpecificCountry(place: Place('This is Rwanda',
+            //                      "assets/images/kc.jpg", 'Kigali',
+            //                      'Ubwemwe Grand, Kigali Rwanda'),),));
           query = "";
         },
       ),
@@ -509,7 +524,7 @@ class Search extends SearchDelegate {
     " Algeria",
     " Algeria",
     " Benin",
-    "Botswana",
+    "Rwanda",
     "Burundi",
   ];
 
