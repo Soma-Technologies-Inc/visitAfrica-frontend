@@ -1,5 +1,4 @@
-import 'package:visistafri/views/models/mostVisited.models.dart';
-
+import 'package:visistafri/models/mostVisited.models.dart';
 class MostVisted {
   String name;
   List<Place> places;

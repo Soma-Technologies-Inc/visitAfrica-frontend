@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'views/homepage.view.dart';
+import 'models/mostVisited.models.dart';
+import 'views/SpecificCountry.view.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Todos ',
-    theme: ThemeData(primaryColor: Colors.red),
-    home: Homepage(),
+    theme: ThemeData(primaryColor: Colors.white),
+    home: SpecificCountry(place: Place('Nyugwe Park', "assets/images/park2.jpg", 'Nyamagabe',
+          'Nyugwe Park')),
   ));
 }
