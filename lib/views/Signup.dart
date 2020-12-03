@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:visistafri/models/models.dart';
+import 'package:visistafri/models/signup.model.dart';
 
 class SignupView extends StatefulWidget {
-  final List<Login> mydata;
+  final List<Info> mydata;
   const SignupView({Key key, this.mydata}) : super(key: key);
   @override
   _SigninState createState() => _SigninState();
@@ -14,7 +14,7 @@ class _SigninState extends State<SignupView> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xffB15C1E),
-          title: Text('Sign up'),
+          title: Text('Saved Data'),
         ),
         body: ListView.builder(
           itemCount: widget.mydata.length,
@@ -31,7 +31,7 @@ class _SigninState extends State<SignupView> {
                     child: Row(
                       children: <Widget>[
                         Text(
-                          "Email :   " + widget.mydata[index].email,
+                          "Hospitality Name:   " + widget.mydata[index].email,
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
@@ -48,7 +48,7 @@ class _SigninState extends State<SignupView> {
                     child: Row(
                       children: <Widget>[
                         Text(
-                          "Password : " + widget.mydata[index].password,
+                          "Description: " + widget.mydata[index].password,
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
