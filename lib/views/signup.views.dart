@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:visistafri/utils/screen_size.dart';
+
 import 'package:visistafri/views/login.views.dart';
-import 'package:visistafri/views/signin.views.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:visistafri/views/signup.model.dart';
+import 'package:visistafri/models/signup.model.dart';
+import 'package:visistafri/views/home.view.dart';
 
 class SignupView extends StatefulWidget {
   @override
@@ -197,18 +198,14 @@ class _SignupViewState extends State<SignupView> {
                                 return;
                               }
 
-                              myinfo.add(Info(username.text, email.text,
-                                  password.text, confirmPassword.text));
-                              username.clear();
-                              email.clear();
-                              password.clear();
-                              confirmPassword.clear();
-                               Navigator.push(
-                        context,
-                        CupertinoPageRoute(
-                          builder: (BuildContext context) => SignInView(),
-                        ),
-                      );
+                              Navigator.push(
+                                context,
+                                CupertinoPageRoute(
+                                  builder: (BuildContext context) => Homepage(
+                                    login: email.text,
+                                  ),
+                                ),
+                              );
                             }
                           },
                           minWidth: 150,
@@ -249,9 +246,7 @@ class _SignupViewState extends State<SignupView> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SigninView(
-                                            signup: myinfo,
-                                          )));
+                                      builder: (context) => SignInView()));
                             },
                             child: Text(
                               'Sign in',

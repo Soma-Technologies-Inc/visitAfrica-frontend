@@ -11,8 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: WelcomeView(),
       theme: ThemeData(primaryColor: Color(0xffB15C1E)),
-
     );
   }
 }
-
