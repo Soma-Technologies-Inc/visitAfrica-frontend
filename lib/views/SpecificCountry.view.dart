@@ -204,6 +204,10 @@ class _SpecificCountryState extends State<SpecificCountry> {
                           side: BorderSide(color: Colors.grey)),
                       onPressed: () {
                         setState(() {
+                          mostVisited = Repositroy().getItemsByCountryAndCategory(
+                          widget.place.location,
+                          mostVisitedCategories[index].name,
+                         );
                           selectedIndex = index;
                           mostVisited =
                               Repositroy().getItemsByCountryAndCategory(
