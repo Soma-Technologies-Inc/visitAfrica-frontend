@@ -1,17 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:visistafri/models/models.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:visistafri/views/pass.view.dart';
-import 'package:visistafri/views/signup.view.dart';
 
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:visistafri/models/signup.model.dart';
+import 'package:visistafri/views/pass.view.dart';
+import 'package:visistafri/views/home.view.dart';
+import 'package:visistafri/views/signup.views.dart';
 
 class SignInView extends StatefulWidget {
-  SignInView({Key key, this.title}) : super(key: key);
-
-  final String title;
-
   @override
   _SignInViewState createState() => _SignInViewState();
 }
@@ -20,25 +17,26 @@ class _SignInViewState extends State<SignInView> {
   TextEditingController etemail = new TextEditingController();
   TextEditingController etpassword = new TextEditingController();
 
-  Login data = Login("", "");
-  List<Login> myarray = [new Login("ritaa@gmail.com", "1234"),new Login("dianne@gmail.com", "12345")];
+  List<Info> myinfo = [
+    new Info("Sandrine Umurerwawase", "sando@gmail.com", "12345", "12345"),
+    new Info("Diane Ngonga", "diane@gmail.com", "diane123", "diane123"),
+    new Info("Rita Hategekima", "rita@gmail.com", "rita2000", "rita2000"),
+    new Info("Floride Tuyisenge", "fofo@gmail", "12345678", "12345678"),
+    new Info("John Mugiraneza", "mujohn25@gmail.com", "1234578", "1234578"),
+  ];
   bool showPassword = false;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            body:
-             SingleChildScrollView(
+            body: SingleChildScrollView(
       child: Column(children: <Widget>[
         Container(
           child: Stack(
             children: <Widget>[
-              Image.asset(
-                "assets/images/Group 3.png",
-                fit: BoxFit.contain,
-                width: 700.0
-              ),
+              Image.asset("assets/images/Group 3.png",
+                  fit: BoxFit.contain, width: 700.0),
               Padding(
                 padding: const EdgeInsets.only(top: 180.0, left: 30.0),
                 child: Text(
@@ -71,24 +69,26 @@ class _SignInViewState extends State<SignInView> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left:30.0, right:30.0),
+                padding: EdgeInsets.only(left: 30.0, right: 30.0),
                 child: TextFormField(
                   controller: etemail,
                   decoration: InputDecoration(
                     hintText: 'Email',
                   ),
                   validator: (value) {
-                            if (value.isEmpty) {
-                              return "email can not be empty";
-                            } else if (!RegExp(r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$').hasMatch(value)) {
-                              return "Please enter valid input";
-                            } else
-                              return null;
-                          },
+                    if (value.isEmpty) {
+                      return "email can not be empty";
+                    } else if (!RegExp(
+                            r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
+                        .hasMatch(value)) {
+                      return "Please enter valid input";
+                    } else
+                      return null;
+                  },
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(left:30.0,right:30.0),
+                padding: EdgeInsets.only(left: 30.0, right: 30.0),
                 child: TextFormField(
                   controller: etpassword,
                   decoration: InputDecoration(
@@ -132,37 +132,34 @@ class _SignInViewState extends State<SignInView> {
                 height: 30.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(right:145.0),
+                padding: const EdgeInsets.only(right: 145.0),
                 child: Container(
                   child: MaterialButton(
                     color: Color(0xffB15C1E),
                     textColor: Colors.white,
                     child: Text('Sign in'),
-                    onPressed: (){
-                     if (formKey.currentState.validate()) {
-                                dynamic list = myarray
-                                  .where((item) => item.email == etemail.text
-                                   && item.password == etpassword.text
-                                   );
-                                  if (list.length > 0) {
-                                myarray.add(Login(etemail.text,
-                                    etpassword.text));
-                              }
-                              else  {
-                                Fluttertoast.showToast(
-                                    msg: "The email or password not exist.",
-                                    toastLength: Toast.LENGTH_SHORT,
-                                    gravity: ToastGravity.BOTTOM);
-                                return;
-                            }
-                              etemail.clear();
-                        etpassword.clear();
-                      
-                          }
-                     
+                    onPressed: () {
+                      if (formKey.currentState.validate()) {
+                        dynamic list = myinfo.where((item) =>
+                            item.email == etemail.text &&
+                            item.password == etpassword.text);
+                        if (list.length > 0) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      Homepage(login: "${etemail.text}")));
+                        } else {
+                          Fluttertoast.showToast(
+                              msg: "The email or password not exist.",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM);
+                          return;
+                        }
+                      }
                     },
-                       minWidth: 150,
-                      height: 40.0,
+                    minWidth: 150,
+                    height: 40.0,
                     shape: new RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(20.0)),
                   ),
@@ -170,11 +167,11 @@ class _SignInViewState extends State<SignInView> {
               ),
               SizedBox(
                 height: 30.0,
-              ), 
+              ),
               SizedBox(
                 height: 30.0,
               ),
-            Container(
+              Container(
                 padding: EdgeInsets.only(left: 20.0),
                 child: Column(
                   children: [
@@ -186,10 +183,9 @@ class _SignInViewState extends State<SignInView> {
                   ],
                 ),
               ),
-                SizedBox(
+              SizedBox(
                 height: 5.0,
               ),
-
               Container(
                 padding: EdgeInsets.only(left: 20.0),
                 child: Column(
@@ -202,7 +198,7 @@ class _SignInViewState extends State<SignInView> {
                   ],
                 ),
               ),
-                SizedBox(
+              SizedBox(
                 height: 30.0,
               ),
               Container(
@@ -213,8 +209,10 @@ class _SignInViewState extends State<SignInView> {
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => SignupView()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignupView()));
                     },
                     child: Text(
                       'Sign up',
@@ -223,8 +221,7 @@ class _SignInViewState extends State<SignInView> {
                       ),
                     ),
                   ),
-                ]
-                ),
+                ]),
               ),
               SizedBox(
                 height: 15.0,
@@ -232,10 +229,7 @@ class _SignInViewState extends State<SignInView> {
             ],
           ),
         ),
-      ]
-    ),
-  )
-)
-);
+      ]),
+    )));
   }
 }
