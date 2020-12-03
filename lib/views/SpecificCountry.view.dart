@@ -19,7 +19,7 @@ class _SpecificCountryState extends State<SpecificCountry> {
   List<String> kWords;
   int selectedIndex = 0;
 
-  String selectedCategory = "Building";
+  String selectedCategory = "Buildings";
   MostVisted mostVisited;
 
   @override
@@ -206,6 +206,11 @@ class _SpecificCountryState extends State<SpecificCountry> {
                       onPressed: () {
                         setState(() {
                           selectedIndex = index;
+                          mostVisited =
+                              Repositroy().getItemsByCountryAndCategory(
+                            widget.place.location,
+                            mostVisitedCategories[index].name,
+                          );
                         });
                       },
                       color: selectedIndex == index
@@ -231,7 +236,8 @@ class _SpecificCountryState extends State<SpecificCountry> {
                   crossAxisCount: 3,
                   crossAxisSpacing: 8,
                   mainAxisSpacing: 8,
-                  children: List.generate(mostVisited?.places?.length ?? 0, (index) {
+                  children:
+                      List.generate(mostVisited?.places?.length ?? 0, (index) {
                     return Column(
                       children: [
                         Container(

@@ -6,11 +6,11 @@ class Repositroy {
     var t = mostVisitedCategories.where((element) {
       if (element.name == category) {
         element.places =
-            element.places.where((item) => item.location == location);
-        return true;
+            element.places.where((item) => item.location == location).toList();
+        return element.places.isNotEmpty;
       }
       return false;
-    }).first;
-    return t;
+    }).toList();
+    return t.isNotEmpty ? t[0] : null;
   }
 }
