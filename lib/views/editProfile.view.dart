@@ -24,10 +24,8 @@ class _EditProfileState extends State<EditProfile> {
                     Image.asset(
                       "assets/images/Group 3.png",
                       width: double.infinity,
-                      //height: 270,
                       fit: BoxFit.cover,
-                    ),
-                    //  fit: BoxFit.contain, width: 700.0),
+                    ),            
                     Padding(
                       padding: const EdgeInsets.only(top: 180.0, left: 30.0),
                       child: Text(
@@ -116,9 +114,7 @@ class _EditProfileState extends State<EditProfile> {
                             child: TextFormField(
                               decoration: const InputDecoration(
                                 hintText: "Enter Your Name",
-                              ),
-                              //enabled: !_status,
-                              //  autofocus: !_status,
+                              ),                          
                             ),
                           ),
                         ],
@@ -156,8 +152,7 @@ class _EditProfileState extends State<EditProfile> {
                               decoration: const InputDecoration(
                                 hintText: "Enter Your Email",
                               ),
-                              //enabled: !_status,
-                              //  autofocus: !_status,
+                            
                             ),
                           ),
                         ],
@@ -217,7 +212,7 @@ class _EditProfileState extends State<EditProfile> {
                             child: TextFormField(
                               decoration: const InputDecoration(
                                   hintText: "Enter Birthday"),
-                              //enabled: !_status,
+                           
                             ),
                             flex: 2,
                           ),
@@ -268,10 +263,7 @@ class _EditProfileState extends State<EditProfile> {
                               child: TextFormField(
                                 decoration: const InputDecoration(
                                     hintText: "Enter Language"),
-                              ),
-
-                              //  enabled: !_status,
-                             
+                              ),                      
                             ),
                             flex: 2,
                           ),
@@ -318,52 +310,13 @@ class _EditProfileState extends State<EditProfile> {
                               decoration: const InputDecoration(
                                 hintText: "Enter Your Address",
                               ),
-                              //enabled: !_status,
-                              //  autofocus: !_status,
+
                             ),
                           ),
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: 25.0, right: 25.0, top: 25.0),
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          new Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              new Text(
-                                'Role',
-                                style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.only(left: 25.0, right: 25.0, top: 2.0),
-                      child: new Row(
-                        mainAxisSize: MainAxisSize.max,
-                        children: <Widget>[
-                          new Flexible(
-                            child: new TextFormField(
-                              decoration: const InputDecoration(
-                                hintText: "Enter Your Role",
-                              ),
-                              //enabled: !_status,
-                              //  autofocus: !_status,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+
                     Padding(
                       padding: EdgeInsets.only(
                           left: 25.0, right: 25.0, top: 30.0, bottom: 64.0),
