@@ -5,8 +5,9 @@ import 'package:visistafri/models/mostVisited.models.dart';
 import 'package:readmore/readmore.dart';
 import 'package:visistafri/models/place.models.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
+
 import 'package:visistafri/views/signup.views.dart';
-import 'package:visistafri/views/specificcountry.views.dart';
+import 'package:visistafri/views/specificPlace.view.dart';
 import 'package:visistafri/widgets/smallbutton.widget.dart';
 
 class Homepage extends StatefulWidget {
@@ -369,7 +370,16 @@ class _HomepageState extends State<Homepage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SpecificCountry()));
+                              builder: (context) => Places(
+                                placePicture:
+                                    mostVisitedCategories[selectedIndex]
+                                        .places[index]
+                                        .image,
+                                placeDisc: mostVisitedCategories[selectedIndex]
+                                    .places[index]
+                                    .description,
+                              ),
+                            ));
                       },
                       child: Image.asset(
                         mostVisitedCategories[selectedIndex]
