@@ -19,7 +19,6 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   final List<String> list = List.generate(10, (index) => "Text $index");
-  @override
   List<String> kWords;
   int selectedIndex = 0;
 
