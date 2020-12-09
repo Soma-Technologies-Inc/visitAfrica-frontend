@@ -99,10 +99,17 @@ flutter:
     - assets/images/kp4.JPG
     - assets/images/kp5.JPG
     - assets/images/Image1.PNG
-    
-    
+    - assets/images/search.png
+    - assets/images/convetion.PNG
+    - assets/images/onomo.PNG
+    - assets/images/park.PNG
+    - assets/images/radison.PNG
+    - assets/images/yegoCabs.PNG
+    - assets/images/visitBus.PNG
+    - assets/images/moveme.PNG
+    - assets/images/safari.PNG
+    - assets/images/safaicom.PNG
    
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
