@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:visistafri/utils/screen_size.dart';
+import 'package:visistafri/utils/responsiviness.dart';
 import 'package:visistafri/views/signup.views.dart';
 import 'package:visistafri/widgets/button.widget.dart';
 

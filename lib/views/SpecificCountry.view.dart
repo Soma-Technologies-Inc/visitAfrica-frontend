@@ -5,6 +5,7 @@ import 'package:visistafri/models/mostVisited.models.dart';
 import 'package:visistafri/models/place.models.dart';
 import 'package:visistafri/repostory/data.dart';
 import 'package:visistafri/repostory/repository.dart';
+import 'package:visistafri/views/specificPlace.view.dart';
 
 class SpecificCountry extends StatefulWidget {
   final Place place;
@@ -204,10 +205,11 @@ class _SpecificCountryState extends State<SpecificCountry> {
                           side: BorderSide(color: Colors.grey)),
                       onPressed: () {
                         setState(() {
-                          mostVisited = Repositroy().getItemsByCountryAndCategory(
-                          widget.place.location,
-                          mostVisitedCategories[index].name,
-                         );
+                          mostVisited =
+                              Repositroy().getItemsByCountryAndCategory(
+                            widget.place.location,
+                            mostVisitedCategories[index].name,
+                          );
                           selectedIndex = index;
                           mostVisited =
                               Repositroy().getItemsByCountryAndCategory(
@@ -246,6 +248,28 @@ class _SpecificCountryState extends State<SpecificCountry> {
                         Container(
                           child: InkWell(
                             onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Places(
+                                      placePicture:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .image,
+                                      placeDisc:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .description,
+                                      placeLocation:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .location,
+                                      placeAddress:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .name,
+                                    ),
+                                  ));
                             },
                             child: Image.asset(
                               mostVisited.places[index].image,

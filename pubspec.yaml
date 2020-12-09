@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  datetime_picker_formfield: ^1.0.0
   flutter:
     sdk: flutter
 
@@ -40,6 +41,7 @@ dependencies:
   country_provider: ^0.0.1
   circular_profile_avatar: ^1.0.8
 dev_dependencies:
+  flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
 
@@ -60,66 +62,101 @@ flutter:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   assets:
-    - assets/images/mycover.png
-    - assets/images/cover1.png
-    - assets/images/Group 3.png
-    - assets/images/facebook.png
-    - assets/images/search.png
-  
-  
-    - assets/images/af.JPEG
-    - assets/images/kc.JPG
-    - assets/images/mega.JPG
-    - assets/images/vc.JPG
-    - assets/images/vc2.JPG
-    - assets/images/vc3.JPG
-    - assets/images/vc4.JPG
-    - assets/images/vc5.JPG
-    - assets/images/saga.JPG
-    - assets/images/cnp.JPG
-    - assets/images/gf.JPG
-    - assets/images/cp.JPG
-    - assets/images/cp2.JPG
-    - assets/images/cp3.JPG
-    - assets/images/cp4.JPG
-    - assets/images/cp5.JPG
-    - assets/images/tr.JPG
-    - assets/images/ch.JPG
-    - assets/images/st.JPG
-    - assets/images/ac.JPG
-    - assets/images/tm.JPG
-    - assets/images/rw.JPG
-    - assets/images/bc.JPG
-    - assets/images/pb.JPG
-    - assets/images/mb.JPG
-    - assets/images/wb.JPG
-    - assets/images/kp.JPG
-    - assets/images/kp2.JPG
-    - assets/images/kp3.JPG
-    - assets/images/kp4.JPG
-    - assets/images/kp5.JPG
-    - assets/images/Image1.PNG
-    - assets/images/nyugwe.JPG
-
-    
-    
    
-    - assets/images/Group 3.png
-    - assets/images/b1.jpg
-    - assets/images/b2.jpg
-    - assets/images/b3.jpg
-    - assets/images/park1.jpg
-    - assets/images/park2.jpg
-    - assets/images/park3.jpg
-    - assets/images/l1.jpg
-    - assets/images/l2.jpg
-    - assets/images/l3.jpg
-    - assets/images/m1.png
-    - assets/images/m2.png
-    - assets/images/m3.png
-    - assets/images/kcc2.jpg
-    - assets/images/lakekivu1.png
-    - assets/images/kc.jpg
+   - assets/images/Group 3.png
+   - assets/images/simg.png
+   - assets/images/facebook.png
+   - assets/images/search.png
+   - assets/images/convetion.PNG
+   - assets/images/onomo.PNG
+   - assets/images/park.PNG
+   - assets/images/radison.PNG
+   - assets/images/yegoCabs.PNG
+   - assets/images/visitBus.PNG
+   - assets/images/moveme.PNG
+   - assets/images/af.JPEG
+   - assets/images/kc.JPG
+   - assets/images/mega.JPG
+   - assets/images/vc.JPG
+   - assets/images/vc2.JPG
+   - assets/images/vc3.JPG
+   - assets/images/vc4.JPG
+   - assets/images/vc5.JPG
+   - assets/images/saga.JPG
+   - assets/images/cnp.JPG
+   - assets/images/gf.JPG
+   - assets/images/cp.JPG
+   - assets/images/cp2.JPG
+   - assets/images/cp3.JPG
+   - assets/images/cp4.JPG
+   - assets/images/cp5.JPG
+   - assets/images/tr.JPG
+   - assets/images/ch.JPG
+   - assets/images/st.JPG
+   - assets/images/ac.JPG
+   - assets/images/tm.JPG
+   - assets/images/rw.JPG
+   - assets/images/bc.JPG
+   - assets/images/pb.JPG
+   - assets/images/mb.JPG
+   - assets/images/wb.JPG
+   - assets/images/kp.JPG
+   - assets/images/kp2.JPG
+   - assets/images/kp3.JPG
+   - assets/images/kp4.JPG
+   - assets/images/kp5.JPG
+   - assets/images/Image1.PNG
+   - assets/images/cover1.png
+   - assets/images/af.JPEG
+   - assets/images/kc.JPG
+   - assets/images/mega.JPG
+   - assets/images/vc.JPG
+   - assets/images/vc2.JPG
+   - assets/images/vc3.JPG
+   - assets/images/vc4.JPG
+   - assets/images/vc5.JPG
+   - assets/images/saga.JPG
+   - assets/images/cnp.JPG
+   - assets/images/gf.JPG
+   - assets/images/cp.JPG
+   - assets/images/cp2.JPG
+   - assets/images/cp3.JPG
+   - assets/images/cp4.JPG
+   - assets/images/cp5.JPG
+   - assets/images/tr.JPG
+   - assets/images/ch.JPG
+   - assets/images/st.JPG
+   - assets/images/ac.JPG
+   - assets/images/tm.JPG
+   - assets/images/rw.JPG
+   - assets/images/bc.JPG
+   - assets/images/pb.JPG
+   - assets/images/mb.JPG
+   - assets/images/wb.JPG
+   - assets/images/kp.JPG
+   - assets/images/kp2.JPG
+   - assets/images/kp3.JPG
+   - assets/images/kp4.JPG
+   - assets/images/kp5.JPG
+   - assets/images/Image1.PNG
+   - assets/images/nyugwe.JPG
+   - assets/images/Group 3.png
+   - assets/images/b1.jpg
+   - assets/images/b2.jpg
+   - assets/images/b3.jpg
+   - assets/images/park1.jpg
+   - assets/images/park2.jpg
+   - assets/images/park3.jpg
+   - assets/images/l1.jpg
+   - assets/images/mycover.png
+   - assets/images/l2.jpg
+   - assets/images/l3.jpg
+   - assets/images/m1.png
+   - assets/images/m2.png
+   - assets/images/m3.png
+   - assets/images/kcc2.jpg
+   - assets/images/lakekivu1.png
+   - assets/images/kc.jpg
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
