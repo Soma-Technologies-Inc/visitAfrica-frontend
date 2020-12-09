@@ -99,9 +99,28 @@ flutter:
     - assets/images/kp4.JPG
     - assets/images/kp5.JPG
     - assets/images/Image1.PNG
+    - assets/images/nyugwe.JPG
+
     
     
    
+    - assets/images/Group 3.png
+    - assets/images/b1.jpg
+    - assets/images/b2.jpg
+    - assets/images/b3.jpg
+    - assets/images/park1.jpg
+    - assets/images/park2.jpg
+    - assets/images/park3.jpg
+    - assets/images/l1.jpg
+    - assets/images/l2.jpg
+    - assets/images/l3.jpg
+    - assets/images/m1.png
+    - assets/images/m2.png
+    - assets/images/m3.png
+    - assets/images/kcc2.jpg
+    - assets/images/lakekivu1.png
+    - assets/images/kc.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
