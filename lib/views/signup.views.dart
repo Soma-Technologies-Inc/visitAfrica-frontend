@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
-import 'package:visistafri/utils/screen_size.dart';
-
+import 'package:visistafri/utils/responsiviness.dart';
 import 'package:visistafri/views/login.views.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:visistafri/models/signup.model.dart';

@@ -6,7 +6,7 @@ import 'package:readmore/readmore.dart';
 import 'package:visistafri/models/place.models.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:visistafri/views/signup.views.dart';
-import 'package:visistafri/views/specificcountry.views.dart';
+import 'package:visistafri/views/SpecificCountry.view.dart';
 import 'package:visistafri/widgets/smallbutton.widget.dart';
 
 class Homepage extends StatefulWidget {
@@ -26,7 +26,7 @@ class _HomepageState extends State<Homepage> {
   List<Place> slides = [
     Place('SERENGETI', "assets/images/af.JPEG", 'Nairobi,Tanzania',
         'Serengeti National Park,Nothern Tanzania'),
-    Place('KCC', "assets/images/kc.JPG", 'Kigali,Rwanda',
+    Place('KCC', "assets/images/kc.jpg", 'Kigali,Rwanda',
         'Kigali Convetion Center, Kigali Rwanda'),
     Place('Mega Mixed', "assets/images/mega.JPG", 'Johannesburg,South-Africa',
         'Mega Mixed Building, Johannesburg South-Africa'),
@@ -40,47 +40,60 @@ class _HomepageState extends State<Homepage> {
   ];
   List<MostVisted> mostVisitedCategories = [
     MostVisted('Buildings', [
-      Place('KCC', "assets/images/kc.JPG", 'Kigali,Rwanda',
+      Place('Kigali Convetion Center', "assets/images/kc.jpg", 'Kigali,Rwanda',
           'Kigali Convetion Center'),
-      Place('KCC', "assets/images/ac.JPG", 'Kigali,Rwanda', 'Round Building'),
-      Place(
-          'KCC', "assets/images/Image1.PNG", 'Kigali,Rwanda', 'Nairobi Tower'),
-      Place('KCC', "assets/images/ch.JPG", 'Kigali,Rwanda',
+      Place('Round Building', "assets/images/ac.JPG", 'Kigali,Rwanda',
+          'Round Building'),
+      Place('Nairobi Tower', "assets/images/Image1.PNG", 'Kigali,Rwanda',
+          'Nairobi Tower'),
+      Place('South Tradition Building', "assets/images/ch.JPG", 'Kigali,Rwanda',
           'South Tradition Building'),
-      Place('KCC', "assets/images/st.JPG", 'Kigali,Rwanda',
+      Place('Front Bended Building', "assets/images/st.JPG", 'Kigali,Rwanda',
           'Front Bended Building'),
-      Place('KCC', "assets/images/ac.JPG", 'Kigali,Rwanda',
+      Place('Commercial Building', "assets/images/ac.JPG", 'Kigali,Rwanda',
           'Commercial Building'),
     ]),
     MostVisted('Beach', [
-      Place(
-          'KCC', "assets/images/saga.JPG", 'Kigali,Rwanda', 'Kenya Long Beach'),
-      Place('KCC', "assets/images/tm.JPG", 'Kigali,Rwanda', 'Tamu-Tamu Beach'),
-      Place(
-          'KCC', "assets/images/bc.JPG", 'Kigali,Rwanda', 'Saga Plage Burundi'),
-      Place('KCC', "assets/images/pb.JPG", 'Kigali,Rwanda', 'Tamu-Tamu Beach'),
-      Place(
-          'KCC', "assets/images/mb.JPG", 'Kigali,Rwanda', 'Saga Plage Burundi'),
-      Place('KCC', "assets/images/wb.JPG", 'Kigali,Rwanda', 'Kenya Long Beach'),
+      Place('Kenya Long Beach', "assets/images/saga.JPG", 'Kigali,Rwanda',
+          'Kenya Long Beach'),
+      Place('Tamu-Tamu Beach', "assets/images/tm.JPG", 'Kigali,Rwanda',
+          'Tamu-Tamu Beach'),
+      Place('Saga Plage Burundi', "assets/images/bc.JPG", 'Kigali,Rwanda',
+          'Saga Plage Burundi'),
+      Place('Tamu-Tamu Beach', "assets/images/pb.JPG", 'Kigali,Rwanda',
+          'Tamu-Tamu Beach'),
+      Place('Saga Plage Burundi', "assets/images/mb.JPG", 'Kigali,Rwanda',
+          'Saga Plage Burundi'),
+      Place('Kenya Long Beach', "assets/images/wb.JPG", 'Kigali,Rwanda',
+          'Kenya Long Beach'),
     ]),
     MostVisted('Volcanoes', [
-      Place('KCC', "assets/images/vc.JPG", 'Kigali,Rwanda', 'Mount Nyiragongo'),
-      Place('vcC', "assets/images/rw.JPG", 'Kigali,Rwanda', 'Mount Kalisimbi'),
-      Place('vcC', "assets/images/vc2.JPG", 'Kigali,Rwanda', 'Mount Muhabura'),
-      Place('vcC', "assets/images/vc3.JPG", 'Kigali,Rwanda', 'Mount Sabyinyo'),
-      Place('vcC', "assets/images/vc4.JPG", 'Kigali,Rwanda', 'Mount Bisoke'),
-      Place('vcC', "assets/images/vc5.JPG", 'Kigali,Rwanda',
+      Place('Mount Nyiragongo', "assets/images/vc.JPG", 'Kigali,Rwanda',
+          'Mount Nyiragongo'),
+      Place('Mount Kalisimbi', "assets/images/rw.JPG", 'Kigali,Rwanda',
+          'Mount Kalisimbi'),
+      Place('Mount Muhabura', "assets/images/vc2.JPG", 'Kigali,Rwanda',
+          'Mount Muhabura'),
+      Place('Mount Sabyinyo', "assets/images/vc3.JPG", 'Kigali,Rwanda',
+          'Mount Sabyinyo'),
+      Place('Mount Bisoke', "assets/images/vc4.JPG", 'Kigali,Rwanda',
+          'Mount Bisoke'),
+      Place('Mount Kilimandjalo', "assets/images/vc5.JPG", 'Kigali,Rwanda',
           'Mount Kilimandjalo'),
     ]),
     MostVisted('Canopy', [
-      Place('KCC', "assets/images/cnp.JPG", 'Kigali,Rwanda', 'Nyungwe Canopy'),
-      Place('KCC', "assets/images/cp.JPG", 'Kigali,Rwanda', 'DRC Canopy'),
-      Place('KCC', "assets/images/cp2.JPG", 'Kigali,Rwanda', 'Tanzania Canopy'),
-      Place('KCC', "assets/images/cp3.JPG", 'Kigali,Rwanda',
+      Place('Nyungwe Canopy', "assets/images/cnp.JPG", 'Kigali,Rwanda',
+          'Nyungwe Canopy'),
+      Place(
+          'DRC Canopy', "assets/images/cp.JPG", 'Kigali,Rwanda', 'DRC Canopy'),
+      Place('Tanzania Canopy', "assets/images/cp2.JPG", 'Kigali,Rwanda',
+          'Tanzania Canopy'),
+      Place('South Sudan Canopy', "assets/images/cp3.JPG", 'Kigali,Rwanda',
           'South Sudan Canopy'),
-      Place('KCC', "assets/images/cp4.JPG", 'Kigali,Rwanda',
+      Place('SouthAfrica Canopy', "assets/images/cp4.JPG", 'Kigali,Rwanda',
           'SouthAfrica Canopy'),
-      Place('KCC', "assets/images/cp5.JPG", 'Kigali,Rwanda', 'Gabon Canopy'),
+      Place('Gabon Canopy', "assets/images/cp5.JPG", 'Kigali,Rwanda',
+          'Gabon Canopy'),
     ]),
     MostVisted('Parks', [
       Place('KCC', "assets/images/af.JPEG", 'Kigali,Rwanda',
@@ -141,14 +154,14 @@ class _HomepageState extends State<Homepage> {
           'This is Serengeti National Park'),
       Place('KCC', "assets/images/kp.JPG", 'Kigali,Rwanda',
           'Akagera National Park'),
-      Place('KCC', "assets/images/kp2.JPG", 'Kigali,Rwanda',
+      Place('Virunga National Park', "assets/images/kp2.JPG", 'Kigali,Rwanda',
           'Virunga National Park'),
-      Place('KCC', "assets/images/kp3.JPG", 'Kigali,Rwanda',
+      Place('Amzon National Park', "assets/images/kp3.JPG", 'Kigali,Rwanda',
           'Amzon National Park'),
-      Place('KCC', "assets/images/kp4.JPG", 'Kigali,Rwanda',
+      Place('Kenyan National Park', "assets/images/kp4.JPG", 'Kigali,Rwanda',
           'Kenyan National Park'),
-      Place(
-          'KCC', "assets/images/kp5.JPG", 'Kigali,Rwanda', 'DRC National Park'),
+      Place('DRC National Park', "assets/images/kp5.JPG", 'Kigali,Rwanda',
+          'DRC National Park'),
     ]),
   ];
 
@@ -369,7 +382,22 @@ class _HomepageState extends State<Homepage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SpecificCountry()));
+                              builder: (context) => SpecificCountry(
+                                place: Place(
+                                    mostVisitedCategories[selectedIndex]
+                                        .places[index]
+                                        .name,
+                                    mostVisitedCategories[selectedIndex]
+                                        .places[index]
+                                        .image,
+                                    mostVisitedCategories[selectedIndex]
+                                        .places[index]
+                                        .location,
+                                    mostVisitedCategories[selectedIndex]
+                                        .places[index]
+                                        .description),
+                              ),
+                            ));
                       },
                       child: Image.asset(
                         mostVisitedCategories[selectedIndex]
@@ -390,7 +418,6 @@ class _HomepageState extends State<Homepage> {
                               .places[index]
                               .description,
                           trimLines: 2,
-                          colorClickableText: Colors.pink,
                           trimMode: TrimMode.Line,
                           trimCollapsedText: 'Show more',
                           trimExpandedText: 'Show less',
@@ -475,6 +502,12 @@ class Search extends SearchDelegate {
       IconButton(
         icon: Icon(Icons.close),
         onPressed: () {
+          // Navigator.push(
+          //                 context,
+          //                 MaterialPageRoute(
+          //                     builder: (context) => SpecificCountry(place: Place('This is Rwanda',
+          //                      "assets/images/kc.jpg", 'Kigali',
+          //                      'Ubwemwe Grand, Kigali Rwanda'),),));
           query = "";
         },
       ),
@@ -509,7 +542,7 @@ class Search extends SearchDelegate {
     " Algeria",
     " Algeria",
     " Benin",
-    "Botswana",
+    "Rwanda",
     "Burundi",
   ];
 
