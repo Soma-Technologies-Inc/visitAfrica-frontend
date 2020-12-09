@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  datetime_picker_formfield: ^1.0.0
   flutter:
     sdk: flutter
 
@@ -40,6 +41,7 @@ dependencies:
   country_provider: ^0.0.1
   circular_profile_avatar: ^1.0.8
 dev_dependencies:
+  flutter_launcher_icons: "^0.7.3"
   flutter_test:
     sdk: flutter
 
