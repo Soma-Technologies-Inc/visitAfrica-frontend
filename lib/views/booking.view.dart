@@ -2,17 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:visistafri/models/book.model.dart';
 import 'package:visistafri/utils/responsiviness.dart';
-import 'package:visistafri/views/halldata.view.dart';
+import 'package:visistafri/views/notification.view.dart';
 
-class Bookhotel extends StatefulWidget {
+class ViewSpecificTask extends StatefulWidget {
   final String title;
+  final String location;
+  final String address;
+  final String type;
+  final String name;
 
-  const Bookhotel({Key key, this.title}) : super(key: key);
+  const ViewSpecificTask(
+      {Key key, this.title, this.location, this.address, this.type, this.name})
+      : super(key: key);
   @override
-  _BookhotelState createState() => _BookhotelState();
+  _ViewSpecificTaskState createState() => _ViewSpecificTaskState();
 }
 
-class _BookhotelState extends State<Bookhotel> {
+class _ViewSpecificTaskState extends State<ViewSpecificTask> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<String> _halls = [
     'Big  Hall (500-1000)',
@@ -21,19 +27,19 @@ class _BookhotelState extends State<Bookhotel> {
   ];
   String _selectedHalls;
   DateTime selectedDate = DateTime.now();
+  TextEditingController name = new TextEditingController();
+  TextEditingController email = new TextEditingController();
   TextEditingController phone = new TextEditingController();
-
   TextEditingController hall = new TextEditingController();
   TextEditingController time = new TextEditingController();
-  TextEditingController dateto = new TextEditingController();
-
+  TextEditingController timeTo = new TextEditingController();
   Bookingdetails booknow = Bookingdetails(
     "",
     "",
     "",
     "",
   );
-  List<Bookingdetails> booknowlist = [];
+  List<Bookingdetails> myarray = [];
   _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
@@ -58,7 +64,7 @@ class _BookhotelState extends State<Bookhotel> {
           child: Stack(
             children: <Widget>[
               Image.asset(
-                "assets/images/simg.png",
+                "assets/images/Group 3.png",
                 width: 1000,
                 height: ScreenSize.defaultSize * 26,
                 fit: BoxFit.cover,
@@ -175,26 +181,21 @@ class _BookhotelState extends State<Bookhotel> {
                       borderRadius: new BorderRadius.circular(30.0)),
                   onPressed: () {
                     if (formKey.currentState.validate()) {
-                      booknowlist.add(Bookingdetails(
-                        phone.text,
-                        hall.text,
-                        time.text,
-                        dateto.text,
-                      ));
-                      phone.clear();
+                      myarray.add(Bookingdetails(
+                          phone.text, hall.text, time.text, timeTo.text));
+
                       time.clear();
+                      phone.clear();
                       hall.clear();
                     } else {
                       return null;
                     }
-
                     Navigator.push(
                       context,
                       CupertinoPageRoute(
                         builder: (BuildContext context) => Notifyme(
-                          notify: booknowlist,
+                          notify: myarray,
                           thehall: _selectedHalls,
-                          title: widget.title,
                         ),
                       ),
                     );

@@ -33,6 +33,7 @@ dependencies:
   fluttertoast: ^7.1.4
   readmore: ^1.0.0
   device_preview: ^0.5.5
+  flushbar: ^1.10.4
   
 
 

@@ -1,21 +1,33 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:visistafri/models/booktransport.model.dart';
 import 'package:visistafri/utils/responsiviness.dart';
 import 'package:visistafri/views/transportdata.view.dart';
 import 'package:intl/intl.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 
-class Mytransport extends StatefulWidget {
+class EditTransportRequest extends StatefulWidget {
   final String title;
+  String myphonenumber;
+  String mycartype;
+  String mypickupdate;
+  String mydropoffdate;
 
-  const Mytransport({Key key, this.title}) : super(key: key);
+  EditTransportRequest({
+    Key key,
+    this.title,
+    this.myphonenumber,
+    this.mycartype,
+    this.mypickupdate,
+    this.mydropoffdate,
+  }) : super(key: key);
   @override
-  _MytransportState createState() => _MytransportState();
+  _EditTransportRequestState createState() => _EditTransportRequestState();
 }
 
-class _MytransportState extends State<Mytransport> {
+class _EditTransportRequestState extends State<EditTransportRequest> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   List<String> _cars = [
@@ -57,15 +69,15 @@ class _MytransportState extends State<Mytransport> {
           child: Stack(
             children: <Widget>[
               Image.asset(
-                "assets/images/simg.png",
+                "assets/images/Group 3.png",
                 width: 1000,
                 height: ScreenSize.defaultSize * 26,
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 170.0, left: 30.0),
+                padding: const EdgeInsets.only(top: 220.0, left: 10.0),
                 child: Text(
-                  'Welcome',
+                  'Update your booking',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -73,24 +85,13 @@ class _MytransportState extends State<Mytransport> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 200.0, left: 30.0),
-                child: Text(
-                  'to ${widget.title}',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
               SizedBox(
                 height: 30.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 240.0, left: 30.0),
+                padding: const EdgeInsets.only(top: 270.0, left: 10.0),
                 child: Text(
-                  'Fill the form below to book a hall',
+                  'Fill the form below to edit your request',
                   style: TextStyle(
                     color: Color(0xffB15C1E),
                     fontSize: 14.0,
@@ -110,7 +111,7 @@ class _MytransportState extends State<Mytransport> {
                   controller: phonenumber,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    hintText: 'Your Phone Number',
+                    hintText: '${widget.myphonenumber}',
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
@@ -152,7 +153,7 @@ class _MytransportState extends State<Mytransport> {
                       format: format,
                       controller: pickupdate,
                       decoration: InputDecoration(
-                        hintText: 'Tap to select Pick-Up date',
+                        hintText: '${widget.mypickupdate}',
                       ),
                       validator: (DateTime dateTime) {
                         if (dateTime == null) {
@@ -192,7 +193,7 @@ class _MytransportState extends State<Mytransport> {
                       format: format,
                       controller: dropoffdate,
                       decoration: InputDecoration(
-                        hintText: 'Tap to select Drop-off date',
+                        hintText: '${widget.mydropoffdate}',
                       ),
                       validator: (DateTime dateTime) {
                         if (dateTime == null) {
@@ -270,7 +271,7 @@ class _MytransportState extends State<Mytransport> {
                     );
                   },
                   child: Text(
-                    'Book Now',
+                    'Update',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
