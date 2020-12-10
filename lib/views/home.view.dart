@@ -7,6 +7,7 @@ import 'package:visistafri/models/place.models.dart';
 import 'package:circular_profile_avatar/circular_profile_avatar.dart';
 import 'package:visistafri/views/signup.views.dart';
 import 'package:visistafri/views/SpecificCountry.view.dart';
+import 'package:visistafri/views/viewbookingrequests.views.dart';
 import 'package:visistafri/widgets/smallbutton.widget.dart';
 
 class Homepage extends StatefulWidget {
@@ -275,6 +276,32 @@ class _HomepageState extends State<Homepage> {
                         Padding(
                           padding: const EdgeInsets.only(left: 13.0),
                           child: Text('Notifications'),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(right: 0),
+                  child: ListTile(
+                    title: Row(
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.markunread_outlined,
+                          ),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => ViewRequests(),
+                                ));
+                          },
+                          color: Color(0xffB15C1E),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 0),
+                          child: Text('View Requests'),
                         ),
                       ],
                     ),

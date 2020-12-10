@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:visistafri/models/booknow.model.dart';
+
+import 'package:visistafri/models/booktransport.model.dart';
+
+import 'edittransport.view.dart';
 
 class Notifytransport extends StatefulWidget {
   final thehall;
-  final List<Booknow> notifytransport;
+  final List<Booktransport> notifytransport;
   final String title;
 
   const Notifytransport({
@@ -26,11 +29,37 @@ class _NotifytransportState extends State<Notifytransport> {
           return Column(
             children: [
               Container(
-                alignment: Alignment.bottomCenter,
-                padding: EdgeInsets.only(left: 20.0, top: 30.0),
-                child: Row(
+                child: Stack(
                   children: <Widget>[
-                    Text("Your reservation summary at ${widget.title}"),
+                    Image.asset(
+                      "assets/images/Group 3.png",
+                      width: 1000,
+                      fit: BoxFit.cover,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 230.0, left: 10.0),
+                      child: Text(
+                        'View Bookings Report',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 24.0,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30.0,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 300.0, left: 10.0),
+                      child: Text(
+                        'Below is  the summary of your bookings ',
+                        style: TextStyle(
+                          color: Color(0xffB15C1E),
+                          fontSize: 18.0,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -68,7 +97,7 @@ class _NotifytransportState extends State<Notifytransport> {
                 child: Row(
                   children: <Widget>[
                     Text("Time for Pick-Up: " +
-                        widget.notifytransport[index].pickuptime),
+                        widget.notifytransport[index].pickupdate),
                   ],
                 ),
               ),
@@ -81,8 +110,40 @@ class _NotifytransportState extends State<Notifytransport> {
                 child: Row(
                   children: <Widget>[
                     Text("Time to drop-off: " +
-                        widget.notifytransport[index].dropofftime),
+                        widget.notifytransport[index].dropoffdate),
                   ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 150.0, top: 30),
+                child: MaterialButton(
+                  color: Color(0xffB15C1E),
+                  height: 40,
+                  minWidth: 142,
+                  textColor: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0)),
+                  child: new Text(
+                    'Edit',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => EditTransportRequest(
+                                myphonenumber:
+                                    widget.notifytransport[index].phonenumber,
+                                mypickupdate:
+                                    widget.notifytransport[index].pickupdate,
+                                mydropoffdate:
+                                    widget.notifytransport[index].dropoffdate,
+                              )),
+                    );
+                  },
                 ),
               ),
             ],

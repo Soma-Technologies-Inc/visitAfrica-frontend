@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'views/welcome.view.dart';
+
+import 'package:visistafri/views/welcome.view.dart';
 
 void main() {
   runApp(MyApp());

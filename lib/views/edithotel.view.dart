@@ -1,50 +1,91 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:visistafri/models/book.model.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:visistafri/models/booknow.model.dart';
 import 'package:visistafri/utils/responsiviness.dart';
-import 'package:visistafri/views/halldata.view.dart';
+import 'package:visistafri/views/hoteldata.view.dart';
 
-class Bookhotel extends StatefulWidget {
+class EditHotelRequest extends StatefulWidget {
   final String title;
+  String myphonenumber;
+  String mynumberofpeople;
+  String myroomtype;
+  String mydatefrom;
+  String mydateto;
+  String mypickuptime;
+  String mydropofftime;
 
-  const Bookhotel({Key key, this.title}) : super(key: key);
+  EditHotelRequest({
+    Key key,
+    this.title,
+    this.myphonenumber,
+    this.mynumberofpeople,
+    this.myroomtype,
+    this.mydatefrom,
+    this.mydateto,
+    this.mypickuptime,
+    this.mydropofftime,
+  }) : super(key: key);
   @override
-  _BookhotelState createState() => _BookhotelState();
+  _EditHotelRequestState createState() => _EditHotelRequestState();
 }
 
-class _BookhotelState extends State<Bookhotel> {
+class _EditHotelRequestState extends State<EditHotelRequest> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  List<String> _halls = [
-    'Big  Hall (500-1000)',
-    'Medium Hall(200-500)',
-    'Small Hall(20-100)',
+  List<String> _rooms = [
+    'Single Room',
+    'Double Room',
+    'Triple Room',
+    'Queen Room',
+    'Quad Room',
+    'King Room',
+    'Twin Room',
+    'Studio Room',
   ];
   String _selectedHalls;
   DateTime selectedDate = DateTime.now();
-  TextEditingController phone = new TextEditingController();
 
-  TextEditingController hall = new TextEditingController();
-  TextEditingController time = new TextEditingController();
+  TextEditingController phonenumber = new TextEditingController();
+  TextEditingController numberofpeople = new TextEditingController();
+  TextEditingController halltype = new TextEditingController();
+  TextEditingController datefrom = new TextEditingController();
   TextEditingController dateto = new TextEditingController();
-
-  Bookingdetails booknow = Bookingdetails(
-    "",
-    "",
-    "",
-    "",
-  );
-  List<Bookingdetails> booknowlist = [];
+  TextEditingController pickuptime = new TextEditingController();
+  TextEditingController dropofftime = new TextEditingController();
+  Booknow booknow = Booknow("", "", "", "", "", "", "");
+  List<Booknow> mybookdata = [];
+  var gethour;
   _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
       context: context,
-      initialDate: selectedDate,
+      initialDate: DateTime.now(),
       firstDate: DateTime.now().subtract(Duration(days: 0)),
-      lastDate: DateTime(2021),
+      lastDate: DateTime(2031),
     );
     if (picked != null && picked != selectedDate)
       setState(() {
-        time.text = picked.toString();
+        gethour = picked;
+        datefrom.text = picked.toString();
       });
+  }
+
+  _selectDateTo(BuildContext context) async {
+    if (gethour != null) {
+      final DateTime picked = await showDatePicker(
+        context: context,
+        initialDate: gethour != null ? gethour : DateTime.now(),
+        firstDate: gethour != null
+            ? gethour.subtract(Duration(days: 0))
+            : DateTime.now().subtract(Duration(days: 0)),
+        lastDate: DateTime(2031),
+      );
+      if (picked != null && picked != selectedDate)
+        setState(() {
+          dateto.text = picked.toString();
+        });
+    } else {
+      Fluttertoast.showToast(msg: 'Please select date from in first place');
+    }
   }
 
   @override
@@ -58,15 +99,15 @@ class _BookhotelState extends State<Bookhotel> {
           child: Stack(
             children: <Widget>[
               Image.asset(
-                "assets/images/simg.png",
+                "assets/images/Group 3.png",
                 width: 1000,
                 height: ScreenSize.defaultSize * 26,
                 fit: BoxFit.cover,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 170.0, left: 30.0),
+                padding: const EdgeInsets.only(top: 220.0, left: 10.0),
                 child: Text(
-                  'Welcome',
+                  'Update your booking',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -74,24 +115,13 @@ class _BookhotelState extends State<Bookhotel> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 200.0, left: 30.0),
-                child: Text(
-                  'to ${widget.title}',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0,
-                  ),
-                ),
-              ),
               SizedBox(
                 height: 30.0,
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 240.0, left: 30.0),
+                padding: const EdgeInsets.only(top: 270.0, left: 10.0),
                 child: Text(
-                  'Fill the form below to book a hall',
+                  'Fill the form below to edit your request',
                   style: TextStyle(
                     color: Color(0xffB15C1E),
                     fontSize: 14.0,
@@ -106,12 +136,12 @@ class _BookhotelState extends State<Bookhotel> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
+                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 30),
                 child: TextFormField(
-                  controller: phone,
+                  controller: phonenumber,
                   keyboardType: TextInputType.phone,
                   decoration: InputDecoration(
-                    hintText: 'Your Phone Number',
+                    hintText: '${widget.myphonenumber}',
                   ),
                   validator: (value) {
                     if (value.isEmpty) {
@@ -126,18 +156,33 @@ class _BookhotelState extends State<Bookhotel> {
                 ),
               ),
               Container(
+                padding: EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
+                child: TextFormField(
+                  keyboardType: TextInputType.text,
+                  controller: numberofpeople,
+                  decoration:
+                      InputDecoration(hintText: '${widget.mynumberofpeople}'),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return "Please enter your name";
+                    } else
+                      return null;
+                  },
+                ),
+              ),
+              Container(
                 padding:
                     const EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
                 child: DropdownButton(
                   isExpanded: true,
-                  hint: Text('Please select Hall size'),
+                  hint: Text('Please select Room type'),
                   value: _selectedHalls,
                   onChanged: (newValue) {
                     setState(() {
                       _selectedHalls = newValue;
                     });
                   },
-                  items: _halls.map((halls) {
+                  items: _rooms.map((halls) {
                     return DropdownMenuItem(
                       child: new Text(halls),
                       value: halls,
@@ -148,12 +193,32 @@ class _BookhotelState extends State<Bookhotel> {
               Container(
                 padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
                 child: TextFormField(
-                    controller: time,
+                    controller: datefrom,
                     decoration: InputDecoration(
-                      hintText: 'Select Time',
+                      hintText: '${widget.mydatefrom}',
                       suffixIcon: IconButton(
                         icon: Icon(Icons.calendar_today),
+                        color: Color(0xffB15C1E),
                         onPressed: () => _selectDate(context),
+                      ),
+                    ),
+                    readOnly: true,
+                    validator: (value) {
+                      if (value.isEmpty) {
+                        return "Please select time";
+                      } else
+                        return null;
+                    }),
+              ),
+              Container(
+                padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
+                child: TextFormField(
+                    controller: dateto,
+                    decoration: InputDecoration(
+                      hintText: '${widget.mydateto}',
+                      suffixIcon: IconButton(
+                        icon: Icon(Icons.calendar_today),
+                        onPressed: () => _selectDateTo(context),
                       ),
                     ),
                     readOnly: true,
@@ -175,24 +240,28 @@ class _BookhotelState extends State<Bookhotel> {
                       borderRadius: new BorderRadius.circular(30.0)),
                   onPressed: () {
                     if (formKey.currentState.validate()) {
-                      booknowlist.add(Bookingdetails(
-                        phone.text,
-                        hall.text,
-                        time.text,
+                      mybookdata.add(Booknow(
+                        phonenumber.text,
+                        numberofpeople.text,
+                        halltype.text,
+                        datefrom.text,
                         dateto.text,
+                        pickuptime.text,
+                        dropofftime.text,
                       ));
-                      phone.clear();
-                      time.clear();
-                      hall.clear();
+                      phonenumber.clear();
+                      numberofpeople.clear();
+                      halltype.clear();
+                      datefrom.clear();
+                      dateto.clear();
                     } else {
                       return null;
                     }
-
                     Navigator.push(
                       context,
                       CupertinoPageRoute(
-                        builder: (BuildContext context) => Notifyme(
-                          notify: booknowlist,
+                        builder: (BuildContext context) => Notifyhotel(
+                          notifyhotel: mybookdata,
                           thehall: _selectedHalls,
                           title: widget.title,
                         ),
@@ -200,7 +269,7 @@ class _BookhotelState extends State<Bookhotel> {
                     );
                   },
                   child: Text(
-                    'Book Now',
+                    'Update',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
