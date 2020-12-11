@@ -5,7 +5,7 @@ import 'package:visistafri/models/mostVisited.models.dart';
 import 'package:visistafri/models/place.models.dart';
 import 'package:visistafri/repostory/data.dart';
 import 'package:visistafri/repostory/repository.dart';
-import 'package:visistafri/views/beforeBook.view.dart';
+import 'package:visistafri/views/specificPlace.view.dart';
 
 class SpecificCountry extends StatefulWidget {
   final Place place;
@@ -251,7 +251,25 @@ class _SpecificCountryState extends State<SpecificCountry> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => book()));
+                                    builder: (context) => Places(
+                                      placePicture:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .image,
+                                      placeDisc:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .description,
+                                      placeLocation:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .location,
+                                      placeAddress:
+                                          mostVisitedCategories[selectedIndex]
+                                              .places[index]
+                                              .name,
+                                    ),
+                                  ));
                             },
                             child: Image.asset(
                               mostVisited.places[index].image,

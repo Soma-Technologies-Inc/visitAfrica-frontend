@@ -1,25 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:visistafri/models/booknow.model.dart';
 import 'package:visistafri/utils/responsiviness.dart';
-import 'package:visistafri/views/halldata.view.dart';
 
-class Bookhotel extends StatefulWidget {
+import 'package:intl/intl.dart';
+import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
+import 'package:visistafri/views/tourits.view.dart';
+
+class Mytourist extends StatefulWidget {
   final String title;
-
-  const Bookhotel({Key key, this.title}) : super(key: key);
+  const Mytourist({Key key, this.title}) : super(key: key);
   @override
-  _BookhotelState createState() => _BookhotelState();
+  _MytouristState createState() => _MytouristState();
 }
 
-class _BookhotelState extends State<Bookhotel> {
+class _MytouristState extends State<Mytourist> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  List<String> _halls = [
-    'Big  Hall (500-1000)',
-    'Medium Hall(200-500)',
-    'Small Hall(20-100)',
-  ];
-  String _selectedHalls;
   DateTime selectedDate = DateTime.now();
   TextEditingController phonenumber = new TextEditingController();
   TextEditingController numberofpeople = new TextEditingController();
@@ -28,29 +25,11 @@ class _BookhotelState extends State<Bookhotel> {
   TextEditingController dateto = new TextEditingController();
   TextEditingController pickuptime = new TextEditingController();
   TextEditingController dropofftime = new TextEditingController();
-  Booknow booknow = Booknow(
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-  );
-  List<Booknow> booknowlist = [];
-  _selectDate(BuildContext context) async {
-    final DateTime picked = await showDatePicker(
-      context: context,
-      initialDate: selectedDate,
-      firstDate: DateTime.now().subtract(Duration(days: 0)),
-      lastDate: DateTime(2021),
-    );
-    if (picked != null && picked != selectedDate)
-      setState(() {
-        datefrom.text = picked.toString();
-      });
-  }
-
+  Booknow booknow = Booknow("", "", "", "", "", "", "");
+  List<Booknow> mybookdata = [];
+  final format = DateFormat("yyyy-MM-dd HH:mm");
+  var gethour;
+  var gethourto;
   @override
   Widget build(BuildContext context) {
     ScreenSize().init(context);
@@ -95,7 +74,7 @@ class _BookhotelState extends State<Bookhotel> {
               Padding(
                 padding: const EdgeInsets.only(top: 240.0, left: 30.0),
                 child: Text(
-                  'Fill the form below to book a hall',
+                  'Fill the form below to book',
                   style: TextStyle(
                     color: Color(0xffB15C1E),
                     fontSize: 14.0,
@@ -130,43 +109,94 @@ class _BookhotelState extends State<Bookhotel> {
                 ),
               ),
               Container(
-                padding:
-                    const EdgeInsets.only(left: 30.0, right: 30.0, top: 10),
-                child: DropdownButton(
-                  isExpanded: true,
-                  hint: Text('Please select Hall size'),
-                  value: _selectedHalls,
-                  onChanged: (newValue) {
-                    setState(() {
-                      _selectedHalls = newValue;
-                    });
-                  },
-                  items: _halls.map((halls) {
-                    return DropdownMenuItem(
-                      child: new Text(halls),
-                      value: halls,
-                    );
-                  }).toList(),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
+                  child: Column(children: <Widget>[
+                    DateTimeField(
+                      format: format,
+                      controller: pickuptime,
+                      decoration: InputDecoration(
+                        hintText: 'Tap to select arrival date',
+                      ),
+                      validator: (DateTime dateTime) {
+                        if (dateTime == null) {
+                          return "Please tap to select arrival date ";
+                        }
+                        return null;
+                      },
+                      onShowPicker: (context, currentValue) async {
+                        final date = await showDatePicker(
+                            context: context,
+                            firstDate:
+                                DateTime.now().subtract(Duration(days: 0)),
+                            initialDate: currentValue ?? DateTime.now(),
+                            lastDate: DateTime(2100));
+                        if (date != null) {
+                          final time = await showTimePicker(
+                            context: context,
+                            initialTime: TimeOfDay.fromDateTime(currentValue ??
+                                DateTime.now().subtract(Duration(days: 0))),
+                          );
+                          gethour = date;
+                          gethourto = time;
+                          return DateTimeField.combine(date, time);
+                        } else {
+                          return currentValue;
+                        }
+                      },
+                    ),
+                  ]),
                 ),
               ),
               Container(
-                padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
-                child: TextFormField(
-                    controller: datefrom,
-                    decoration: InputDecoration(
-                      hintText: 'Select Time',
-                      suffixIcon: IconButton(
-                        icon: Icon(Icons.calendar_today),
-                        onPressed: () => _selectDate(context),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 30, right: 30),
+                  child: Column(children: <Widget>[
+                    DateTimeField(
+                      format: format,
+                      controller: dropofftime,
+                      decoration: InputDecoration(
+                        hintText: 'Tap to select leaving date',
                       ),
-                    ),
-                    readOnly: true,
-                    validator: (value) {
-                      if (value.isEmpty) {
-                        return "Please select time";
-                      } else
+                      validator: (DateTime dateTime) {
+                        if (dateTime == null) {
+                          return "Please tap to select leaving date";
+                        }
                         return null;
-                    }),
+                      },
+                      onShowPicker: (context, currentValue) async {
+                        if (gethour != null && gethourto != null) {
+                          final date = await showDatePicker(
+                            context: context,
+                            initialDate:
+                                gethour != null ? gethour : DateTime.now(),
+                            firstDate: gethour != null
+                                ? gethour.subtract(Duration(days: 0))
+                                : DateTime.now().subtract(Duration(days: 0)),
+                            lastDate: DateTime(2031),
+                          );
+                          if (date != null) {
+                            final time = await showTimePicker(
+                              context: context,
+                              initialTime: gethourto != null
+                                  ? gethourto
+                                  : TimeOfDay.fromDateTime(currentValue ??
+                                      DateTime.now()
+                                          .subtract(Duration(days: 0))),
+                            );
+                            return DateTimeField.combine(date, time);
+                          } else {
+                            return currentValue;
+                          }
+                        } else {
+                          Fluttertoast.showToast(
+                              msg:
+                                  'Please tap to select pick-up date in first place !');
+                        }
+                      },
+                    ),
+                  ]),
+                ),
               ),
               Container(
                 padding: const EdgeInsets.only(top: 20, right: 200),
@@ -179,7 +209,7 @@ class _BookhotelState extends State<Bookhotel> {
                       borderRadius: new BorderRadius.circular(30.0)),
                   onPressed: () {
                     if (formKey.currentState.validate()) {
-                      booknowlist.add(Booknow(
+                      mybookdata.add(Booknow(
                         phonenumber.text,
                         numberofpeople.text,
                         halltype.text,
@@ -189,18 +219,16 @@ class _BookhotelState extends State<Bookhotel> {
                         dropofftime.text,
                       ));
                       phonenumber.clear();
-                      datefrom.clear();
-                      halltype.clear();
+                      pickuptime.clear();
+                      dropofftime.clear();
                     } else {
                       return null;
                     }
-
                     Navigator.push(
                       context,
                       CupertinoPageRoute(
-                        builder: (BuildContext context) => Notifyme(
-                          notify: booknowlist,
-                          thehall: _selectedHalls,
+                        builder: (BuildContext context) => Tourist(
+                          notifytourist: mybookdata,
                           title: widget.title,
                         ),
                       ),
