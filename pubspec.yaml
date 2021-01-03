@@ -22,6 +22,7 @@ environment:
 
 dependencies:
   datetime_picker_formfield: ^1.0.0
+  image_picker: ^0.6.7+15
   flutter:
     sdk: flutter
 
@@ -69,39 +70,39 @@ flutter:
     - assets/images/search.png
   
   
-    - assets/images/af.JPEG
-    - assets/images/kc.JPG
-    - assets/images/mega.JPG
-    - assets/images/vc.JPG
-    - assets/images/vc2.JPG
-    - assets/images/vc3.JPG
-    - assets/images/vc4.JPG
-    - assets/images/vc5.JPG
-    - assets/images/saga.JPG
-    - assets/images/cnp.JPG
-    - assets/images/gf.JPG
-    - assets/images/cp.JPG
-    - assets/images/cp2.JPG
-    - assets/images/cp3.JPG
-    - assets/images/cp4.JPG
-    - assets/images/cp5.JPG
-    - assets/images/tr.JPG
-    - assets/images/ch.JPG
-    - assets/images/st.JPG
-    - assets/images/ac.JPG
-    - assets/images/tm.JPG
-    - assets/images/rw.JPG
-    - assets/images/bc.JPG
-    - assets/images/pb.JPG
-    - assets/images/mb.JPG
-    - assets/images/wb.JPG
-    - assets/images/kp.JPG
-    - assets/images/kp2.JPG
-    - assets/images/kp3.JPG
-    - assets/images/kp4.JPG
-    - assets/images/kp5.JPG
-    - assets/images/Image1.PNG
-    - assets/images/nyugwe.JPG
+    - assets/images/af.jpeg
+    - assets/images/kc.jpg
+    - assets/images/mega.jpg
+    - assets/images/vc.jpg
+    - assets/images/vc2.jpg
+    - assets/images/vc3.jpg
+    - assets/images/vc4.jpg
+    - assets/images/vc5.jpg
+    - assets/images/saga.jpg
+    - assets/images/cnp.jpg
+    - assets/images/gf.jpg
+    - assets/images/cp.jpg
+    - assets/images/cp2.jpg
+    - assets/images/cp3.jpg
+    - assets/images/cp4.jpg
+    - assets/images/cp5.jpg
+    - assets/images/tr.jpg
+    - assets/images/ch.jpg
+    - assets/images/st.jpg
+    - assets/images/ac.jpg
+    - assets/images/tm.jpg
+    - assets/images/rw.jpg
+    - assets/images/bc.jpg
+    - assets/images/pb.jpg
+    - assets/images/mb.jpg
+    - assets/images/wb.jpg
+    - assets/images/kp.jpg
+    - assets/images/kp2.jpg
+    - assets/images/kp3.jpg
+    - assets/images/kp4.jpg
+    - assets/images/kp5.jpg
+    - assets/images/Image1.png
+    - assets/images/nyugwe.jpg
 
     
     
@@ -116,9 +117,9 @@ flutter:
     - assets/images/l1.jpg
     - assets/images/l2.jpg
     - assets/images/l3.jpg
-    - assets/images/m1.png
-    - assets/images/m2.png
-    - assets/images/m3.png
+    - assets/images/m1.PNG
+    - assets/images/m2.PNG
+    - assets/images/m3.PNG
     - assets/images/kcc2.jpg
     - assets/images/lakekivu1.png
     - assets/images/kc.jpg
